@@ -1,55 +1,20 @@
-<script setup></script>
+<script setup>
+import TeamFooter from "@/components/TeamFooter.vue";
+import TeamHeader from "@/components/Teams/TeamHeader.vue";
+import TeamMembers from "@/components/Teams/TeamMembers.vue";
+import team from "@/team.json";
+console.log(team);
+</script>
 
 <template>
-  <header>
-    <div>
-      <button :disabled="true">Add Member (0 Spots Left)</button>
-    </div>
-    <div>
-      <h3>
-        Smiley team
-        <div>5</div>
-      </h3>
-    </div>
-  </header>
+  <TeamHeader :team="team" />
   <div>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Member 1</td>
-          <td>member1@gmail.com</td>
-          <td>
-            <button>Active</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Member 2</td>
-          <td>member2@gmail.com</td>
-          <td>
-            <button>Active</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Member 3</td>
-          <td>member3@gmail.com</td>
-          <td>
-            <button>Active</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <p>There are no remaining team spots. Upgrade to add more.</p>
+    <TeamMembers :team="team" />
+    <p v-show="team.members.length === team.spots">
+      There are no remaining team spots. Upgrade to add more.
+    </p>
   </div>
-  <footer>
-    <h5>Smiley - 5 member Team</h5>
-  </footer>
+  <TeamFooter :team="team" />
 </template>
 
 <style scoped>

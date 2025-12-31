@@ -1,0 +1,21 @@
+{
+  "name": "Smiley",
+  "spots": 5,
+  "members": [
+    {
+      "name": "Member 1",
+      "email": "member1@gmail.com",
+      "status": "Active"
+    },
+    {
+      "name": "Member 2",
+      "email": "member2@gmail.com",
+      "status": "Active"
+    },
+    {
+      "name": "Member 3",
+      "email": "member3@gmail.com",
+      "status": "Active"
+    }
+  ]
+}
