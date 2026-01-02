@@ -2,19 +2,26 @@
 import TeamFooter from "@/components/TeamFooter.vue";
 import TeamHeader from "@/components/Teams/TeamHeader.vue";
 import TeamMembers from "@/components/Teams/TeamMembers.vue";
-import team from "@/team.json";
-console.log(team);
+// import team from "@/team.json";
+
+import { useTeamStore } from "@/stores/TeamStore";
+
+let team = useTeamStore();
+
+team.fill();
+
+setTimeout(() => {
+  // team.spots = 10; // do not directly change data here - dont mutate state
+  team.grow(10);
+}, 2000);
 </script>
 
 <template>
-  <TeamHeader :team="team" />
+  <TeamHeader />
   <div>
-    <TeamMembers :team="team" />
-    <p v-show="team.members.length === team.spots">
-      There are no remaining team spots. Upgrade to add more.
-    </p>
+    <TeamMembers />
   </div>
-  <TeamFooter :team="team" />
+  <TeamFooter />
 </template>
 
 <style scoped>
